@@ -169,7 +169,7 @@ h2::after {
     background: url('image.png') no-repeat center center / cover;
     color: var(--white);
     margin-bottom: 0;
-    margin-top: 150;
+    margin-top: 150px;
 }
 
 .hero-overlay {
