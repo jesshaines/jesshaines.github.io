@@ -93,12 +93,24 @@ h2::after {
     align-items: center;
 }
 
+
 .logo {
     font-family: 'Playfair Display', serif;
     font-size: 1.6rem;
     font-weight: 700;
     color: var(--sage-green);
     text-decoration: none;
+}
+/* Logo Styling */
+.logo img {
+    height: 55px; /* Adjust this to change the overall size */
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05); /* Adds a subtle, high-end hover effect */
 }
 
 .nav-links {
