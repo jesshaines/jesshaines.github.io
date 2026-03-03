@@ -164,7 +164,7 @@ h2::after {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: url('image.png?auto=format&fit=crop&q=80&w=2000') no-repeat center center/cover;
+    background: url('image.png') no-repeat center center/cover;
     color: var(--white);
     margin-bottom: 0;
 }
