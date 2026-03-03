@@ -9,12 +9,12 @@
 
 :root {
     --sage-green: #8F9E8B;
-    --soft-blue: #5D6D7E;  /* Changed from #A3B8C7 to a deeper, woodsy Forest Slate */
+    --soft-blue: #5D6D7E; 
     --warm-gray: #7F8C8D;
     --off-white: #F9F9F7;
     --dark-text: #2D3436;
     --white: #FFFFFF;
-    --accent-gold: #C5A028; /* Slightly deeper gold for a premium look */
+    --accent-gold: #C5A028;
     --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
@@ -208,12 +208,12 @@ h2::after {
 .about-container {
     display: flex;
     align-items: center;
-    gap: 60px; /* Space between text and image */
-    text-align: left; /* Changes text from center to left-aligned */
+    gap: 60px;
+    text-align: left; 
 }
 
 .about-text {
-    flex: 1.5; /* Gives the text more room than the image */
+    flex: 1.5; 
 }
 
 .about-text h2 {
@@ -222,7 +222,7 @@ h2::after {
 
 .about-text h2::after {
     left: 0;
-    transform: none; /* Moves the blue underline to the left */
+    transform: none; /* Move blue underline to the left */
 }
 
 .about-image {
@@ -232,7 +232,7 @@ h2::after {
 .about-image img {
     width: 100%;
     max-width: 400px;
-    border-radius: 20px; /* Matches your service card corners */
+    border-radius: 20px;
     box-shadow: var(--shadow-subtle);
 }
 
