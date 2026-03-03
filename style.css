@@ -9,12 +9,12 @@
 
 :root {
     --sage-green: #8F9E8B;
-    --soft-blue: #A3B8C7;
-    --warm-gray: #8C8C8C;
+    --soft-blue: #5D6D7E;  /* Changed from #A3B8C7 to a deeper, woodsy Forest Slate */
+    --warm-gray: #7F8C8D;
     --off-white: #F9F9F7;
     --dark-text: #2D3436;
     --white: #FFFFFF;
-    --accent-gold: #D4AF37;
+    --accent-gold: #C5A028; /* Slightly deeper gold for a premium look */
     --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
