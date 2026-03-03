@@ -1,0 +1,244 @@
+/* 
+  Soft Coastal Color Palette:
+  Sage Green: #8F9E8B
+  Soft Blue: #A3B8C7
+  Warm Gray: #8C8C8C
+  Off-White: #F7F7F4
+  Dark Text: #333333
+*/
+
+:root {
+    --sage-green: #8F9E8B;
+    --soft-blue: #A3B8C7;
+    --warm-gray: #8C8C8C;
+    --off-white: #F7F7F4;
+    --dark-text: #333333;
+    --white: #FFFFFF;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Clean, highly readable font with large default size for 55+ demographic */
+    font-family: 'Arial', sans-serif; 
+    font-size: 18px; 
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: var(--white);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 15px;
+    font-weight: normal;
+    color: var(--sage-green);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--white);
+}
+
+h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+.bg-light {
+    background-color: var(--off-white);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: var(--soft-blue);
+    color: var(--white);
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 30px; /* Rounded buttons */
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--sage-green);
+}
+
+/* Section Spacing */
+section {
+    padding: 80px 0;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--sage-green);
+    color: var(--white);
+    padding: 120px 20px;
+    text-align: center;
+}
+
+.hero .tagline {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+}
+
+/* About Section */
+.about {
+    text-align: center;
+}
+
+.about p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+
+/* Services Section */
+.service-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.card {
+    background-color: var(--white);
+    padding: 35px 25px;
+    border-radius: 12px;
+    width: calc(33.333% - 20px); /* 3 columns on desktop */
+    min-width: 280px;
+    /* Subtle shadowed cards for depth without being too harsh */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+    color: var(--soft-blue);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 1.05rem;
+}
+
+/* Pricing Section */
+.pricing {
+    text-align: center;
+}
+
+.pricing p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+}
+
+/* Contact Section */
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.contact-info, .contact-form {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-info h3 {
+    color: var(--sage-green);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--warm-gray);
+    font-size: 1.05rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d1d1d1;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: var(--white);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--soft-blue);
+    box-shadow: 0 0 0 2px rgba(163, 184, 199, 0.3);
+}
+
+/* Footer */
+footer {
+    background-color: var(--warm-gray);
+    color: var(--white);
+    text-align: center;
+    padding: 30px 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+
+    .card {
+        width: 100%; /* 1 column on mobile */
+    }
+
+    .contact-wrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
