@@ -1,20 +1,10 @@
-/* 
-  Soft Coastal Color Palette:
-  Sage Green: #8F9E8B
-  Soft Blue: #A3B8C7
-  Warm Gray: #8C8C8C
-  Off-White: #F7F7F4
-  Dark Text: #333333
-*/
-
 :root {
-    --sage-green: #8F9E8B;
-    --soft-blue: #5D6D7E; 
-    --warm-gray: #7F8C8D;
+    --sage-green: #2D5A27;  /* Matches the dark green in your logo */
+    --soft-blue: #4A8CAF;   /* Matches the canal blue in your logo */
+    --accent-gold: #D4AF37; /* Matches the sun arch in your logo */
     --off-white: #F9F9F7;
     --dark-text: #2D3436;
     --white: #FFFFFF;
-    --accent-gold: #C5A028;
     --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
