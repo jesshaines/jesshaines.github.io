@@ -93,7 +93,7 @@ h2::after {
 }
 /* Logo Styling */
 .logo img {
-    height: 80px; 
+    height: 180px; 
     width: auto;
     display: block;
     transition: transform 0.3s ease;
