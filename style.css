@@ -204,6 +204,53 @@ h2::after {
     color: var(--warm-gray);
 }
 
+/* New About Layout */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* Space between text and image */
+    text-align: left; /* Changes text from center to left-aligned */
+}
+
+.about-text {
+    flex: 1.5; /* Gives the text more room than the image */
+}
+
+.about-text h2 {
+    text-align: left;
+}
+
+.about-text h2::after {
+    left: 0;
+    transform: none; /* Moves the blue underline to the left */
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px; /* Matches your service card corners */
+    box-shadow: var(--shadow-subtle);
+}
+
+/* Ensure it stacks vertically on mobile */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .about-text h2, .about-text h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+}
+
 /* Services Section */
 .services {
     padding: 120px 0;
