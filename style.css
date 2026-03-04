@@ -383,6 +383,57 @@ h2::after {
     box-shadow: 0 0 0 4px rgba(163, 184, 199, 0.1);
 }
 
+/* Reviews Section Styling */
+.reviews {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.reviews-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 30px;
+    padding: 20px 0;
+    scrollbar-width: none; /* Hides scrollbar on Firefox */
+}
+
+.reviews-slider::-webkit-scrollbar {
+    display: none; /* Hides scrollbar on Chrome/Safari */
+}
+
+.review-card {
+    flex: 0 0 100%; /* Shows one review at a time */
+    scroll-snap-align: center;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-subtle);
+}
+
+.review-text {
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--dark-text);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.review-author {
+    font-weight: 600;
+    color: var(--sage-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+/* On larger screens, show two at a time for better balance */
+@media (min-width: 992px) {
+    .review-card {
+        flex: 0 0 calc(50% - 15px);
+    }
+}
+
 /* Footer */
 footer {
     background-color: #2D3436;
