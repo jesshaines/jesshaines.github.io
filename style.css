@@ -384,49 +384,61 @@ h2::after {
 }
 
 /* Reviews Section Styling */
-.reviews {
-    padding: 100px 0;
-    text-align: center;
+.reviews-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
+.slider-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.arrow {
+    font-size: 1.5rem;
+    color: var(--sage-green);
+    cursor: pointer;
+    user-select: none;
+}
+
+.dots {
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+}
+
+.dot.active {
+    background-color: var(--soft-blue);
+    transform: scale(1.2);
+}
+
+.scroll-hint {
+    font-size: 0.8rem;
+    color: var(--warm-gray);
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Subtle change to the slider to show a "peek" of the next card */
 .reviews-slider {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 30px;
-    padding: 20px 0;
-    scrollbar-width: none; /* Hides scrollbar on Firefox */
+    gap: 20px;
+    scrollbar-width: none;
+    padding: 10px;
 }
-
-.reviews-slider::-webkit-scrollbar {
-    display: none; /* Hides scrollbar on Chrome/Safari */
-}
-
-.review-card {
-    flex: 0 0 100%; /* Shows one review at a time */
-    scroll-snap-align: center;
-    background: var(--white);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: var(--shadow-subtle);
-}
-
-.review-text {
-    font-style: italic;
-    font-size: 1.4rem;
-    color: var(--dark-text);
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.review-author {
-    font-weight: 600;
-    color: var(--sage-green);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
-}
-
 /* On larger screens, show two at a time for better balance */
 @media (min-width: 992px) {
     .review-card {
