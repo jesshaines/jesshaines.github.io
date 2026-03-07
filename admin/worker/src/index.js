@@ -84,6 +84,7 @@ export default {
 
         // Normalize outgoing payload
         const payload = {
+          worker_key: env.WORKER_KEY,
           client_name: body.client_name || "",
           phone: body.phone || "",
           address: body.address || "",
