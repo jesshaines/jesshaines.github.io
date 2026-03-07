@@ -1,5 +1,5 @@
 export default {
-  async fetch(request, env, ctx) {
+  async fetch(request, env) {
     const corsHeaders = getCorsHeaders(env, request);
     const url = new URL(request.url);
 
@@ -12,8 +12,9 @@ export default {
     }
 
     try {
-      // Simple origin check
       const origin = request.headers.get("Origin");
+
+      // Only allow your GitHub Pages site
       if (origin && origin !== env.ALLOWED_ORIGIN) {
         return json(
           { ok: false, error: "Origin not allowed" },
@@ -22,12 +23,13 @@ export default {
         );
       }
 
+      // Health check
       if (url.pathname === "/api/ping" && request.method === "GET") {
         return json({ ok: true, message: "pong" }, 200, corsHeaders);
       }
 
+      // Main booking endpoint
       if (url.pathname === "/api/bookings" && request.method === "POST") {
-        // Require JSON
         const contentType = request.headers.get("content-type") || "";
         if (!contentType.includes("application/json")) {
           return json(
@@ -37,7 +39,7 @@ export default {
           );
         }
 
-        // Size check
+        // Optional size check
         const contentLength = parseInt(
           request.headers.get("content-length") || "0",
           10
@@ -63,7 +65,7 @@ export default {
 
         const body = await request.json();
 
-        // Basic validation
+        // Required fields
         const requiredFields = [
           "client_name",
           "phone",
@@ -82,7 +84,7 @@ export default {
           }
         }
 
-        // Normalize outgoing payload
+        // Payload sent to Apps Script
         const payload = {
           worker_key: env.WORKER_KEY,
           client_name: body.client_name || "",
@@ -102,12 +104,10 @@ export default {
           suggested_price_high: body.suggested_price_high || "",
         };
 
-        // Forward to Apps Script
         const upstream = await fetch(env.APPS_SCRIPT_URL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "X-WORKER-KEY": env.WORKER_KEY,
           },
           body: JSON.stringify(payload),
         });
@@ -118,7 +118,11 @@ export default {
         try {
           upstreamJson = JSON.parse(text);
         } catch {
-          upstreamJson = { ok: false, error: "Invalid response from Apps Script", raw: text };
+          upstreamJson = {
+            ok: false,
+            error: "Invalid response from Apps Script",
+            raw: text,
+          };
         }
 
         if (!upstream.ok || upstreamJson.ok !== true) {
@@ -126,6 +130,7 @@ export default {
             {
               ok: false,
               error: upstreamJson.error || "Apps Script write failed",
+              details: upstreamJson.raw || null,
             },
             502,
             corsHeaders
@@ -142,7 +147,10 @@ export default {
       return json({ ok: false, error: "Not found" }, 404, corsHeaders);
     } catch (err) {
       return json(
-        { ok: false, error: err instanceof Error ? err.message : String(err) },
+        {
+          ok: false,
+          error: err instanceof Error ? err.message : String(err),
+        },
         500,
         corsHeaders
       );
@@ -153,7 +161,9 @@ export default {
 function getCorsHeaders(env, request) {
   const origin = request.headers.get("Origin");
   const allowedOrigin =
-    origin && origin === env.ALLOWED_ORIGIN ? origin : env.ALLOWED_ORIGIN;
+    origin && origin === env.ALLOWED_ORIGIN
+      ? origin
+      : env.ALLOWED_ORIGIN;
 
   return {
     "Access-Control-Allow-Origin": allowedOrigin,
@@ -165,9 +175,9 @@ function getCorsHeaders(env, request) {
   };
 }
 
-function json(data, status = 200, corsHeaders = {}) {
+function json(data, status = 200, headers = {}) {
   return new Response(JSON.stringify(data), {
     status,
-    headers: corsHeaders,
+    headers,
   });
 }
