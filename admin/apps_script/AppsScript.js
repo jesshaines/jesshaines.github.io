@@ -16,7 +16,7 @@
  */
 
 // ---- CONFIGURATION — change these values ----
-var WORKER_KEY      = 'JadenKeltonZoeAltonGeogiaLev';   // Must match Worker secret WORKER_KEY
+var WORKER_KEY      = 'WORKER_KEY';   // Must match Worker secret WORKER_KEY
 var SPREADSHEET_ID  = 'https://docs.google.com/spreadsheets/d/18VPlnIOCHAUsg2_wibq16n--_4yWoHFyC4rZ7Uw5KzU/edit?gid=0#gid=0';     // From the Google Sheet URL
 var SHEET_TAB_NAME  = 'Bookings';
 
