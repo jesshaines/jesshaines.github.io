@@ -1,17 +1,4 @@
-name = "colony-surf-cleaning"
-main = "src/index.ts"
-compatibility_date = "2024-01-01"
-compatibility_flags = ["nodejs_compat"]
-
-# ---- Non-secret environment variables ----
-# Set ALLOWED_ORIGIN to your GitHub Pages URL, e.g.:
-#   https://yourusername.github.io
-# You can override this via `wrangler secret put` or add it here for non-sensitive values.
-
-[vars]
-ALLOWED_ORIGIN = "https://jesshaines.github.io"
-
-# ---- Secrets (do NOT put values here — use `wrangler secret put`) ----
-# USER_TOKEN      — the Bearer token your frontend sends
-# WORKER_KEY      — forwarded to Apps Script as X-WORKER-KEY
-# APPS_SCRIPT_URL — your deployed Apps Script web app URL
+name = "colony-surf-cleaning-api"
+main = "src/index.js"
+compatibility_date = "2026-03-06"
+workers_dev = true
