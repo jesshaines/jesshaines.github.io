@@ -1,4 +1,0 @@
-name = "colony-surf-cleaning-api"
-main = "src/index.js"
-compatibility_date = "2026-03-06"
-workers_dev = true
